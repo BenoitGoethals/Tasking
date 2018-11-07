@@ -10,17 +10,6 @@
 
       <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-start">
-          <a class="navbar-item"
-
-            v-for="(item, key) of items"
-            :key="key">
-            <nuxt-link
-              :to="item.to"
-              exact-active-class="is-active">
-             {{ item.title }}
-            </nuxt-link>
-
-          </a>
 
 
           <div class="navbar-item has-dropdown is-hoverable">
