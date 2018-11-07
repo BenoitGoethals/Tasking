@@ -32,8 +32,7 @@ module.exports = {
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: [
-  ],
+  plugins: ['~plugins/filters.js','~plugins/validation.js'],
 
   /*
   ** Nuxt.js modules

@@ -14,8 +14,13 @@
           <div class="card-content">
             <div class="content has-text-centered">
               {{feature.Description}}
-             {{feature.StartDate}}
-              {{feature.EndDate}}
+            </div>
+
+            <div class="content has-text-centered">
+             {{feature.StartDate | formatDate}}
+          </div>
+            <div class="content has-text-centered">
+              {{feature.EndDate | formatDate}}
             </div>
           </div>
           <footer class="card-footer">
@@ -31,10 +36,12 @@
 
 <script>
 import BLogo from '@/components/Logo'
+import moment from 'moment'
 
 export default {
   name: 'HomePage',
   components: {BLogo},
+
   computed: {
     loadedTasks() {
       return this.$store.getters.loadedTasks
