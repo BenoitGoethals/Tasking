@@ -12,9 +12,7 @@
       <div class="tile is-parent is-vertical">
         <article class="tile is-child notification is-primary">
           <p class="title">New Task.</p>
-
         </article>
-
       </div>
     </div>
 
@@ -25,24 +23,31 @@
       </b-select>
     </b-field>
 
-    <b-field horizontal label="Name" :class="{'has-error': errors.has('Task.Name')}">
-      <b-input rounded placeholder="Name" expanded v-model="Task.Name"  v-validate.initial="Task.Name" data-rules="required|alpha|min:3"></b-input>
-      <p class="text-danger" v-if="errors.has('Task.Name')">{{ errors.first('Task.Name') }}</p>
+
+
+    <b-field horizontal label="Name" >
+      <b-input name="Task.Name"  placeholder="Name"  v-model="Task.Name"
+               v-validate="'required|alpha|min:3'" ></b-input>
+      <i v-show="errors.has('Task.Name')" class="fa fa-warning"></i>
+      <span v-show="errors.has('Task.Name')" class="help is-danger">{{ errors.first('Task.Name') }}</span>
     </b-field>
 
 
 
     <b-field horizontal label="Description" :class="{'has-error': errors.has('Task.Description')}">
-      <b-input type="textarea"  v-model="Task.Description"  v-validate.initial="Task.Description" data-rules="required|alpha|min:3"></b-input>
-      <p class="text-danger" v-if="errors.has('Task.Description')">{{ errors.first('Task.Description') }}</p>
+      <b-input  name="Task.Description" type="textarea"  v-model="Task.Description"  v-validate="'required|min:3'" ></b-input>
+      <i v-show="errors.has('Task.Description')" class="fa fa-warning"></i>
+      <span v-show="errors.has('Task.Description')" class="help is-danger">{{ errors.first('Task.Description') }}</span>
     </b-field>
 
 
     <b-field  horizontal label="Select a start date"  >
       <b-datepicker v-model="Task.StartDate"
-        placeholder="Click to select..."
+        placeholder="Click to select..."  v-validate="'required'"
         icon="calendar-today">
       </b-datepicker>
+      <i v-show="errors.has('Task.StartDate')" class="fa fa-warning"></i>
+      <span v-show="errors.has('Task.StartDate')" class="help is-danger">{{ errors.first('Task.StartDate') }}</span>
     </b-field>
 
 
@@ -50,8 +55,11 @@
     <b-field  horizontal label="Select a end date">
       <b-datepicker  v-model="Task.EndDate"
         placeholder="Click to select..."
+       v-validate="'required'"
         icon="calendar-today">
       </b-datepicker>
+      <i v-show="errors.has('Task.EndDate')" class="fa fa-warning"></i>
+      <span v-show="errors.has('Task.EndDate')" class="help is-danger">{{ errors.first('"Task.EndDate') }}</span>
     </b-field>
 
     <b-field  horizontal label="Status">
@@ -112,12 +120,19 @@
         }
       },
       methods: {
-        validateBeforeSubmit(e) {
-          this.$validator.validateAll();
-          if (!this.errors.any()) {
-            this.SaveData()
-          }
-        },
+
+        validateBeforeSubmit() {
+          this.$validator.validateAll().then((result) => {
+            if (result) {
+              // eslint-disable-next-line
+              alert('Form Submitted!');
+              this.SaveData();
+              return;
+            }
+
+            alert('Correct them errors!');
+          })},
+
         SaveData: function () {
 
           this.$store.commit('addItem', this.Task);

@@ -1,4 +1,5 @@
 import Vuex from "vuex";
+import Vue from "vue";
 
 const createStore = () => {
   return new Vuex.Store({
@@ -13,6 +14,13 @@ const createStore = () => {
       addItem: (state, task) => {
         state.cartTotal++;
         state.loadedTasks.push(task);
+      },
+
+      deleteItem: (state, task) => {
+        state.cartTotal--;
+        alert(task)
+        Vue.delete(task,state.loadedTasks)
+
       }
     },
     actions: {
@@ -23,16 +31,79 @@ const createStore = () => {
 
               {
                 id: 0,
-                status: 'Idle',
+                Status: 'Idle',
                 Security: 'Private',
-                Name: 'sdsdsqdsqd',
+                Name: 'benoit',
                 Description: 'rtrter',
                 StartDate: null,
                 EndDate: null
               },
               {
+                id: 1,
+                Status: 'Idle',
+                Security: 'Private',
+                Name: 'imse',
+                Description: 'yuytuytutyu',
+                StartDate: null,
+                EndDate: null
+              },
+              {
                 id: 2,
-                status: 'Idle',
+                Status: 'Idle',
+                Security: 'Private',
+                Name: 'Geert',
+                Description: 'yuytuytutyu',
+                StartDate: null,
+                EndDate: null
+              },
+              {
+                id: 3,
+                Status: 'Idle',
+                Security: 'Private',
+                Name: 'qezez',
+                Description: 'yuytuytutyu',
+                StartDate: null,
+                EndDate: null
+              },
+              {
+                id: 4,
+                Status: 'Idle',
+                Security: 'Private',
+                Name: 'qezez',
+                Description: 'yuytuytutyu',
+                StartDate: null,
+                EndDate: null
+              },
+              {
+                id: 5,
+                Status: 'Idle',
+                Security: 'Private',
+                Name: 'qezez',
+                Description: 'yuytuytutyu',
+                StartDate: null,
+                EndDate: null
+              },
+              {
+                id: 6,
+                Status: 'Idle',
+                Security: 'Private',
+                Name: 'qezez',
+                Description: 'yuytuytutyu',
+                StartDate: null,
+                EndDate: null
+              },
+              {
+                id: 7,
+                Status: 'Idle',
+                Security: 'Private',
+                Name: 'qezez',
+                Description: 'yuytuytutyu',
+                StartDate: null,
+                EndDate: null
+              },
+              {
+                id: 8,
+                Status: 'Idle',
                 Security: 'Private',
                 Name: 'qezez',
                 Description: 'yuytuytutyu',

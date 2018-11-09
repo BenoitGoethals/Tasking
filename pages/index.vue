@@ -1,6 +1,8 @@
 <template>
   <section class="section">
-    <div class="columns is-mobile">
+
+
+
       <div
         v-for="(feature, i) of loadedTasks"
         :key="i"
@@ -30,7 +32,7 @@
           </footer>
         </div>
       </div>
-    </div>
+
   </section>
 </template>
 
@@ -41,7 +43,6 @@ import moment from 'moment'
 export default {
   name: 'HomePage',
   components: {BLogo},
-
   computed: {
     loadedTasks() {
       return this.$store.getters.loadedTasks
