@@ -43,7 +43,7 @@
       :default-sort-direction="defaultSortDirection"
       default-sort="user.first_name"
       :checked-rows.sync="checkedRows"
-      :is-row-checkable="(row) => row.id !== 3"
+
       checkable
     >
 
@@ -100,11 +100,10 @@
         deleteTasks: function () {
 
 
-          for (const prop in this.checkedRows) {
-              alert(prop);
-              this.$store.commit('deleteItem', prop);
 
-          }
+              this.$store.commit('deleteItem', this.checkedRows);
+this.checkedRows=[];
+
         }
       },
     computed: {

@@ -1,5 +1,16 @@
 import Vuex from "vuex";
 import Vue from "vue";
+function arrayRemove(arr, value) {
+
+  return arr.filter(function(ele){
+    return ele != value;
+  });
+
+}
+function check(id) {
+  return id==id;
+}
+
 
 const createStore = () => {
   return new Vuex.Store({
@@ -16,12 +27,21 @@ const createStore = () => {
         state.loadedTasks.push(task);
       },
 
-      deleteItem: (state, task) => {
+      deleteItem: (state, taskNrs) => {
         state.cartTotal--;
-        alert(task)
-        Vue.delete(task,state.loadedTasks)
+      var i=0;
+
+       for(; i<=taskNrs.length; i++){
+
+
+         var index=  state.loadedTasks.findIndex(valer =>valer.id==taskNrs[i].id);
+
+        if(index!=-1)  state.loadedTasks.splice(index, 1);
+        }
+
 
       }
+
     },
     actions: {
       nuxtServerInit(vuexContext, context) {
@@ -29,15 +49,7 @@ const createStore = () => {
           setTimeout(() => {
             vuexContext.commit("setTasks",  [
 
-              {
-                id: 0,
-                Status: 'Idle',
-                Security: 'Private',
-                Name: 'benoit',
-                Description: 'rtrter',
-                StartDate: null,
-                EndDate: null
-              },
+
               {
                 id: 1,
                 Status: 'Idle',
