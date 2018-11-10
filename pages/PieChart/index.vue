@@ -1,17 +1,17 @@
 <template>
   <div class="small">
 
-    <DoughnutChart  :chart-data="datacollection"></DoughnutChart>
-
+    <PieChart :chart-data="datacollection"></PieChart>
+  
   </div>
 </template>
 
 <script>
-  import DoughnutChart from '../plugins/Doughnout'
+  import PieChart from '../../plugins/PieChart.js'
 
   export default {
     components: {
-      DoughnutChart
+      PieChart
     },
 
     data () {
@@ -31,7 +31,7 @@
           datasets: [
             {
               label: 'Data One',
-              backgroundColor: ['Red','Green','Blue','Yellow',],
+              backgroundColor: ['#f11979','#f87949','#f87779','#f87179',],
               data: [ds.valueOf()[0].count,ds.valueOf()[1].count,ds.valueOf()[2].count,ds.valueOf()[3].count ]
             }
           ]

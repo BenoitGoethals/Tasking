@@ -1,5 +1,6 @@
 import Vuex from "vuex";
 import Vue from "vue";
+import jslinq from "jslinq";
 function arrayRemove(arr, value) {
 
   return arr.filter(function(ele){
@@ -61,7 +62,7 @@ const createStore = () => {
               },
               {
                 id: 2,
-                Status: 'Idle',
+                Status: 'Started',
                 Security: 'Private',
                 Name: 'Geert',
                 Description: 'yuytuytutyu',
@@ -88,7 +89,7 @@ const createStore = () => {
               },
               {
                 id: 5,
-                Status: 'Idle',
+                Status: 'Started',
                 Security: 'Private',
                 Name: 'qezez',
                 Description: 'yuytuytutyu',
@@ -97,7 +98,7 @@ const createStore = () => {
               },
               {
                 id: 6,
-                Status: 'Idle',
+                Status: 'Onhold',
                 Security: 'Private',
                 Name: 'qezez',
                 Description: 'yuytuytutyu',
@@ -106,7 +107,7 @@ const createStore = () => {
               },
               {
                 id: 7,
-                Status: 'Idle',
+                Status: 'Ended',
                 Security: 'Private',
                 Name: 'qezez',
                 Description: 'yuytuytutyu',
@@ -115,7 +116,7 @@ const createStore = () => {
               },
               {
                 id: 8,
-                Status: 'Idle',
+                Status: 'Ended',
                 Security: 'Private',
                 Name: 'qezez',
                 Description: 'yuytuytutyu',
@@ -134,6 +135,17 @@ const createStore = () => {
     getters: {
       loadedTasks(state) {
         return state.loadedTasks;
+      },
+
+      graphData(state){
+        var d=state.loadedTasks;
+        var queryObj = jslinq(d);
+        var result = queryObj
+          .groupBy(function(el){
+            return el.Status;
+          }).toList();
+
+        return result;
       }
     }
   });

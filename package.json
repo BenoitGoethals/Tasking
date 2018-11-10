@@ -15,14 +15,22 @@
     "chart.js": "^2.7.3",
     "chartjs": "^0.3.24",
     "cross-env": "^5.2.0",
+    "jslinq": "^1.0.21",
     "moment": "^2.22.2",
     "nuxt": "^2.0.0",
     "nuxt-buefy": "^0.2.1",
+    "quasar": "0.0.18",
+    "quasar-calendar": "^0.3.1",
+    "quasar-framework": "^0.17.16",
     "vee-validate": "^2.1.2",
+    "vue": "^2.5.17",
     "vue-chartjs": "^3.4.0",
-    "vue-pie-chart": "^1.1.0"
+    "vue-pie-chart": "^1.1.0",
+    "vue-simple-calendar": "^4.1.0"
   },
   "devDependencies": {
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.11.0",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2"
   }
 }

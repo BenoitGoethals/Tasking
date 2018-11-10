@@ -32,7 +32,7 @@ module.exports = {
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: ['~plugins/filters.js','~plugins/validation.js'],
+  plugins: ['~plugins/filters.js','~plugins/validation.js','~plugins/LineChart.js','~plugins/PieChart.js','~plugins/Doughnout.js'],
 
   /*
   ** Nuxt.js modules

@@ -175,7 +175,8 @@ export default {
         { title: 'Home', icon: 'home', to: { name: 'index' } },
         { title: 'Make new Task', icon: 'lightbulb', to: { name: 'InputTask' } },
         { title: 'Table', icon: 'lightbulb', to: { name: 'Table' } },
-        { title: 'Chatrs', icon: 'lightbulb', to: { name: 'inspire' } }
+        { title: 'Chart', icon: 'lightbulb', to: { name: 'PieChart' } },
+        { title: 'Calendar', icon: 'lightbulb', to: { name: 'Calendar' }}
       ],
       isComponentModalActive: false,
       formProps: {
