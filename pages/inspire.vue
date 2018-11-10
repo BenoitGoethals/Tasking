@@ -1,8 +1,37 @@
 <template>
-  <section class="section">
-    <h2 class="title is-3 has-text-grey">"Just start  <b-icon
-      icon="rocket"
-      size="is-large" />"</h2>
-    <h3 class="subtitle is-6 has-text-grey">Author: <a href="https://github.com/anteriovieira">Antério Vieira</a></h3>
-  </section>
+
+  <line-chart :chartdata="chartData" ></line-chart>
+
+
 </template>
+
+<script>
+
+  import { Bar } from 'vue-chartjs'
+
+  export default {
+    extends: Bar,
+    data: () => ({
+      chartdata: {
+        datacollection: {
+          labels: ['January', 'February'],
+          datasets: [
+            {
+              label: 'Data One',
+              backgroundColor: '#f87979',
+              data: [40, 20]
+            }
+          ]
+        }
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false
+      }
+    }),
+
+    mounted () {
+      this.renderChart(this.datacollection, this.options)
+    }
+  }
+</script>

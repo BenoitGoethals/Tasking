@@ -12,11 +12,15 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.0.0",
+    "chart.js": "^2.7.3",
+    "chartjs": "^0.3.24",
     "cross-env": "^5.2.0",
     "moment": "^2.22.2",
     "nuxt": "^2.0.0",
     "nuxt-buefy": "^0.2.1",
-    "vee-validate": "^2.1.2"
+    "vee-validate": "^2.1.2",
+    "vue-chartjs": "^3.4.0",
+    "vue-pie-chart": "^1.1.0"
   },
   "devDependencies": {
     "nodemon": "^1.11.0"

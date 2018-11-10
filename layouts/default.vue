@@ -174,7 +174,8 @@ export default {
       items: [
         { title: 'Home', icon: 'home', to: { name: 'index' } },
         { title: 'Make new Task', icon: 'lightbulb', to: { name: 'InputTask' } },
-        { title: 'Table', icon: 'lightbulb', to: { name: 'Table' } }
+        { title: 'Table', icon: 'lightbulb', to: { name: 'Table' } },
+        { title: 'Chatrs', icon: 'lightbulb', to: { name: 'inspire' } }
       ],
       isComponentModalActive: false,
       formProps: {
