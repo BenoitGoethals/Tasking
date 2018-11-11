@@ -22,9 +22,7 @@
                 </a>
 
                 <div class="navbar-dropdown">
-                  <a class="navbar-item">
-                    Add user
-                  </a>
+                  <nuxt-link class="navbar-item" to="/admin">Admin</nuxt-link>
                   <a class="navbar-item">
                     Jobs
                   </a>
@@ -163,7 +161,8 @@ export default {
         { title: 'Make new Task', icon: 'lightbulb', to: { name: 'InputTask' } },
         { title: 'Table', icon: 'lightbulb', to: { name: 'Table' } },
         { title: 'Chart', icon: 'lightbulb', to: { name: 'PieChart' } },
-        { title: 'Calendar', icon: 'lightbulb', to: { name: 'Calendar' }}
+        { title: 'Calendar', icon: 'lightbulb', to: { name: 'Calendar' }},
+        { title: 'Admin', icon: 'lightbulb', to: { name: 'admin' }}
       ]
     }
   }
