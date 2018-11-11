@@ -1,6 +1,6 @@
 <template>
   <form action="">
-    <div class="modal-card" style="width: max-content">
+    <div class="modal-card" style="width: auto">
       <header class="modal-card-head">
         <p class="modal-card-title">Add User</p>
       </header>

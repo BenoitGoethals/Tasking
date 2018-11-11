@@ -67,7 +67,7 @@
 
               <section>
                 <button class="button is-primary is-medium"
-                        @click="cardModal">
+                        @click="loginModel()">
                 Login
                 </button>
 
@@ -110,12 +110,19 @@
 </template>
 
 <script>
-
+  import login from "../components/Login"
 export default {
+
   components: {
 
   },
   methods:{
+    loginModel(){
+      this.$modal.open({
+          parent: this,
+          component: login,
+          hasModalCard: true
+    })},
     cardModal() {
       this.$modal.open({
         parent: this,

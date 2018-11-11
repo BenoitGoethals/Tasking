@@ -49,7 +49,7 @@
       </section>
       <footer class="modal-card-foot">
         <button class="button" type="button" @click="$parent.close()">Close</button>
-        <button class="button is-primary">Login</button>
+        <button class="button is-primary">Save</button>
       </footer>
     </div>
   </form>
@@ -62,7 +62,7 @@
     data() {
       return {
         isComponentModalActive: false,
-        AddUser: {
+        EditUser: {
           email: 'evan@you.com',
           password: 'testing'
         }

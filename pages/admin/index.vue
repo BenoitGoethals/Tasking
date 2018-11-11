@@ -3,12 +3,12 @@
     <section grouped group-multiline>
       <button class="button field is-dark" @click="AddUser()"
               :disabled="!selected">
-        <b-icon icon="account" :type="isGreen"></b-icon>
+        <b-icon icon="account" ></b-icon>
         <span>Add User</span>
       </button>
-      <button class="button field is-dark" @click="selected = null"
+      <button class="button field is-dark" @click="EditUser"
               :disabled="!selected">
-        <b-icon icon="account" :type="isGreen" ></b-icon>
+        <b-icon icon="account" ></b-icon>
         <span>Edit User</span>
       </button>
       <button class="button field is-danger" @click="selected = null"
@@ -96,7 +96,7 @@
 
 
   import adduser from '../../components/AddUser';
-  import editUser from '../../components/editUser';
+  import editUser from '../../components/EditUser';
 
   export default {
     data() {
@@ -122,7 +122,7 @@
         },EditUser(){
           this.$modal.open({
             parent: this,
-            component: edituser,
+            component: editUser,
             hasModalCard: true
           })
 
