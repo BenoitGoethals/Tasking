@@ -12,19 +12,19 @@
       <section class="modal-card-body ">
 
         <b-field horizontal label="Last Name">
-          <b-input v-model="last_name" v-validate="'required|alpha|min:3'"></b-input>
+          <b-input name="last_name" v-model="last_name" v-validate="'required|alpha|min:3'"></b-input>
           <i v-show="errors.has('last_name')" class="fa fa-warning"></i>
           <span v-show="errors.has('last_name')" class="help is-danger">{{ errors.first('last_name') }}</span>
         </b-field>
 
         <b-field horizontal label="Name">
-          <b-input v-model="first_name" v-validate="'required|alpha|min:3'"></b-input>
+          <b-input name="first_name" v-model="first_name" v-validate="'required|alpha|min:3'"></b-input>
           <i v-show="errors.has('first_name')" class="fa fa-warning"></i>
           <span v-show="errors.has('first_name')" class="help is-danger">{{ errors.first('first_name') }}</span>
         </b-field>
 
         <b-field horizontal label="Type">
-          <b-select placeholder="Gender" v-model="Gender">
+          <b-select name="Gender" placeholder="Gender" v-model="Gender">
             <option value="Male" selected>Male</option>
             <option value="Female">Female</option>
           </b-select>
@@ -32,9 +32,9 @@
 
 
         <b-field horizontal label="Email">
-          <b-input type="Email" v-validate="'required|email|min:3'"
-                   value="john@" v:model="Email"
-                   width="50"
+          <b-input name="Email" type="Email" v-validate="'email'" data-vv-as="email"
+                   v:model="Email"
+                   width="20"
                    maxlength="30">
           </b-input>
           <i v-show="errors.has('Email')" class="fa fa-warning"></i>
@@ -42,13 +42,14 @@
         </b-field>
 
         <b-field horizontal label="Username">
-          <b-input value="johnsilver" maxlength="30" v:model="Username" v-validate="'required|alpha|min:3'"></b-input>
+          <b-input name="Username" value="johnsilver" maxlength="30" v:model="Username"
+                   v-validate="'required|alpha|min:3'"></b-input>
           <i v-show="errors.has('Username')" class="fa fa-warning"></i>
           <span v-show="errors.has('Username')" class="help is-danger">{{ errors.first('Username') }}</span>
         </b-field>
 
         <b-field horizontal label="Password">
-          <b-input type="password" v:model="Password" v-validate="'required|alpha|min:3'"
+          <b-input name="Password" type="password" v:model="Password" v-validate="'required|alpha|min:3'"
                    value="iwantmytreasure"
                    password-reveal>
           </b-input>
@@ -57,15 +58,15 @@
         <b-field label="file" horizontal>
           <div class="file">
             <label class="file-label">
-              <input class="file-input" type="file" name="resume" @change="previewImage" accept="image/*">
+              <b-input class="file-input" type="file" name="resume" @change="previewImage" accept="image/*"/>
               <span class="file-cta">
-      <span class="file-icon">
-        <i class="fas fa-upload"></i>
-      </span>
-      <span class="file-label">
-        Choose a file…
-      </span>
-    </span>
+              <span class="file-icon">
+                <i class="fas fa-upload"></i>
+              </span>
+              <span class="file-label">
+                Choose a file…
+              </span>
+            </span>
             </label>
           </div>
         </b-field>
@@ -74,8 +75,8 @@
         </div>
       </section>
       <footer class="modal-card-foot">
-        <button class="button" type="button" @click="$parent.close()">Close</button>
-        <button class="button is-primary" @click="Save">Save</button>
+        <button name="buttonClose" class="button" type="button" @click="$parent.close()">Close</button>
+        <button name="buttonSave" class="button is-primary" @click="Save">Save</button>
       </footer>
     </div>
 
