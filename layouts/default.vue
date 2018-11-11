@@ -8,34 +8,58 @@
 
       </div>
 
-      <div id="navbarBasicExample" class="navbar-menu">
-        <div class="navbar-start">
-
-
-          <div class="navbar-item has-dropdown is-hoverable">
-            <a class="navbar-link">
-              More
-            </a>
-
-            <div class="navbar-dropdown">
-              <a class="navbar-item">
-                About
-              </a>
-              <a class="navbar-item">
-                Jobs
-              </a>
-              <a class="navbar-item">
-                Contact
-              </a>
-              <hr class="navbar-divider">
-              <a class="navbar-item">
-                Report an issue
-              </a>
-            </div>
-          </div>
-        </div>
 
         <div class="navbar-end">
+
+
+
+
+          <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+              <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">
+                  Admin
+                </a>
+
+                <div class="navbar-dropdown">
+                  <a class="navbar-item">
+                    Add user
+                  </a>
+                  <a class="navbar-item">
+                    Jobs
+                  </a>
+                  <a class="navbar-item">
+                    Contact
+                  </a>
+                  <hr class="navbar-divider">
+                  <a class="navbar-item">
+                    Report an issue
+                  </a>
+                </div>
+              </div>
+
+              <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">
+                  More
+                </a>
+
+                <div class="navbar-dropdown">
+                  <a class="navbar-item">
+                    About
+                  </a>
+                  <a class="navbar-item">
+                    Jobs
+                  </a>
+                  <a class="navbar-item">
+                    Contact
+                  </a>
+                  <hr class="navbar-divider">
+                  <a class="navbar-item">
+                    Report an issue
+                  </a>
+                </div>
+              </div>
+            </div>
           <div class="navbar-item">
             <div class="buttons">
               <button class="button is-primary is-medium"
@@ -89,47 +113,10 @@
 </template>
 
 <script>
-  const ModalForm = {
-    props: ['email', 'password'],
-    template: `
-            <form action="">
-                <div class="modal-card" style="width: auto">
-                    <header class="modal-card-head">
-                        <p class="modal-card-title">Login</p>
-                    </header>
-                    <section class="modal-card-body">
-                        <b-field label="Email">
-                            <b-input
-                                type="email"
-                                :value="email"
-                                placeholder="Your email"
-                                required>
-                            </b-input>
-                        </b-field>
 
-                        <b-field label="Password">
-                            <b-input
-                                type="password"
-                                :value="password"
-                                password-reveal
-                                placeholder="Your password"
-                                required>
-                            </b-input>
-                        </b-field>
-
-                        <b-checkbox>Remember me</b-checkbox>
-                    </section>
-                    <footer class="modal-card-foot">
-                        <button class="button" type="button" @click="$parent.close()">Close</button>
-                        <button class="button is-primary">Login</button>
-                    </footer>
-                </div>
-            </form>
-        `
-  }
 export default {
   components: {
-    ModalForm
+
   },
   methods:{
     cardModal() {
@@ -177,12 +164,7 @@ export default {
         { title: 'Table', icon: 'lightbulb', to: { name: 'Table' } },
         { title: 'Chart', icon: 'lightbulb', to: { name: 'PieChart' } },
         { title: 'Calendar', icon: 'lightbulb', to: { name: 'Calendar' }}
-      ],
-      isComponentModalActive: false,
-      formProps: {
-        email: 'evan@you.com',
-        password: 'testing'
-      }
+      ]
     }
   }
 }

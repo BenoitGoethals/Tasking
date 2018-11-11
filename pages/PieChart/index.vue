@@ -1,8 +1,8 @@
 <template>
   <div class="small">
-
-    <PieChart :chart-data="datacollection"></PieChart>
-  
+    <b-message title="Default" >
+    <PieChart :chart-data="datacollection"  ></PieChart>
+    </b-message>
   </div>
 </template>
 
@@ -45,7 +45,7 @@
   }
 </script>
 
-<style>
+<style scoped>
   .small {
     max-width: 600px;
     margin:  150px auto;
