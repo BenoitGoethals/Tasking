@@ -87,12 +87,37 @@
         <b>Total checked</b>: {{ checkedRows.length }}
       </template>
     </b-table>
+<div>
+  <div id="app">
+    <h1>Bitcoin Price Index</h1>
 
+    <section v-if="errored">
+      <p>We're sorry, we're not able to retrieve this information at the moment, please try back later</p>
+    </section>
+
+    <section v-else>
+      <div v-if="loading">Loading...</div>
+
+      <div
+        v-else
+        v-for="currency in info"
+        class="currency"
+      >
+        {{ currency }}:
+        <span class="lighten">
+        <span v-html="currency"></span>{{ currency }}
+      </span>
+      </div>
+
+    </section>
+  </div>
+</div>
   </section>
+
 </template>
 
 <script>
-
+  import axios from 'axios'
   export default {
 
     methods:
@@ -122,8 +147,31 @@ this.checkedRows=[];
         isPaginationSimple: false,
         defaultSortDirection: 'asc',
         currentPage: 1,
-        perPage: 5
+        perPage: 5,
+        info: null,
+        loading: true,
+        errored: false
       }
+    },
+
+ filters: {
+   currencydecimal (value) {
+     return value.toFixed(2)
+   },
+    mounted () {
+      axios
+        .get('http://localhost:5000/api/todo')
+        .then(response => {
+
+          this.info = response.data.bpi;
+          console.log(this.info);
+        })
+        .catch(error => {
+          console.log(error);
+          this.errored = true;
+        })
+        .finally(() => this.loading = false)
     }
+  }
   }
 </script>
