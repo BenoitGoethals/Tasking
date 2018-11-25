@@ -1,5 +1,11 @@
 <template>
-  <section>
+  <section v-if="errored">
+  <p>We're sorry, we're not able to retrieve this information at the moment, please try back later</p>
+  </section>
+  <section v-else>
+  <div v-if="loading">Loading...</div>
+    <div
+      v-else>
     <button class="button field is-danger" @click="checkedRows = []"
             :disabled="!checkedRows.length">
 
@@ -34,14 +40,14 @@
       </div>
     </b-field>
 
-    <b-table
-      :data="tasks"
+    <b-table v-show="info!=null"
+      :data="info"
       :paginated="isPaginated"
       :per-page="perPage"
       :current-page.sync="currentPage"
       :pagination-simple="isPaginationSimple"
       :default-sort-direction="defaultSortDirection"
-      default-sort="user.first_name"
+
       :checked-rows.sync="checkedRows"
 
       checkable
@@ -53,31 +59,31 @@
         </b-table-column>
 
         <b-table-column field="Name" label="Name" sortable>
-          {{ props.row.Name }}
+          {{ props.row.name }}
         </b-table-column>
 
         <b-table-column field="Description" label="Last Name" sortable>
-          {{ props.row.Description }}
+          {{ props.row.description }}
         </b-table-column>
 
         <b-table-column field="Status" label="Status" sortable>
-          {{ props.row.Status }}
+          {{ props.row.status }}
         </b-table-column>
 
         <b-table-column field="Security" label="Security" sortable>
-          {{ props.row.Security }}
+          {{ props.row.security }}
         </b-table-column>
 
         <b-table-column field="StartDate" label="Start Date" sortable centered>
                     <span class="tag is-success">
-                        {{ new Date(props.row.StartDate).toLocaleDateString() }}
+                        {{ new Date(props.row.startDate).toLocaleDateString() }}
                     </span>
         </b-table-column>
 
 
         <b-table-column field="EndDate" label="End Date" sortable centered>
                     <span class="tag is-success">
-                        {{ new Date(props.row.EndDate).toLocaleDateString() }}
+                        {{ new Date(props.row.endDate).toLocaleDateString() }}
                     </span>
         </b-table-column>
 
@@ -88,36 +94,16 @@
       </template>
     </b-table>
 <div>
-  <div id="app">
-    <h1>Bitcoin Price Index</h1>
 
-    <section v-if="errored">
-      <p>We're sorry, we're not able to retrieve this information at the moment, please try back later</p>
-    </section>
-
-    <section v-else>
-      <div v-if="loading">Loading...</div>
-
-      <div
-        v-else
-        v-for="currency in info"
-        class="currency"
-      >
-        {{ currency }}:
-        <span class="lighten">
-        <span v-html="currency"></span>{{ currency }}
-      </span>
-      </div>
-
-    </section>
-  </div>
 </div>
+    </div>
   </section>
 
 </template>
 
 <script>
   import axios from 'axios'
+
   export default {
 
     methods:
@@ -141,7 +127,7 @@ this.checkedRows=[];
     data() {
 
       return {
-        tasks: this.$store.getters.loadedTasks,
+
         checkedRows: [],
         isPaginated: true,
         isPaginationSimple: false,
@@ -157,13 +143,17 @@ this.checkedRows=[];
  filters: {
    currencydecimal (value) {
      return value.toFixed(2)
+   }
    },
     mounted () {
       axios
-        .get('http://localhost:5000/api/todo')
+        .get('https://localhost:44310/api/ToDo')
+
+
+
         .then(response => {
 
-          this.info = response.data.bpi;
+          this.info = response.data;
           console.log(this.info);
         })
         .catch(error => {
@@ -172,6 +162,6 @@ this.checkedRows=[];
         })
         .finally(() => this.loading = false)
     }
-  }
+
   }
 </script>

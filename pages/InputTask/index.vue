@@ -33,7 +33,6 @@
     </b-field>
 
 
-
     <b-field horizontal label="Description" :class="{'has-error': errors.has('Task.Description')}">
       <b-input  name="Task.Description" type="textarea"  v-model="Task.Description"  v-validate="'required|min:3'" ></b-input>
       <i v-show="errors.has('Task.Description')" class="fa fa-warning"></i>
@@ -101,6 +100,7 @@
 </template>
 
 <script>
+  import axios from 'axios'
     export default {
         name: "InputForm",
       data() {
@@ -134,10 +134,33 @@
           })},
 
         SaveData: function () {
+          axios.post('https://localhost:44310/api/ToDo', {
 
-          this.$store.commit('addItem', this.Task);
+            body:  this.Task,
+            headers: {
+              'Access-Control-Allow-Origin': '*',
+              'Access-Control-Allow-Credentials': true,
+              'Content-Type': 'application/x-www-form-urlencoded'
+            },
+          }).then((response) => {alert(this.task)})
+            .catch((e) => {
+              alert(e);
+              console.error(e)
+            })
+         // this.$store.commit('addItem', this.Task);
           this.$nuxt.$router.replace({ path: '/' });
         },
+
+        createPost () {
+          axios.post('http://jsonplaceholder.typicode.com/posts', {
+            title: this.postTitle,
+            body: this.postBody
+          }).then((response) => {})
+            .catch((e) => {
+              console.error(e)
+            })
+        },
+
 
         Cancel: function () {
           this.$nuxt.$router.replace({ path: '/' });
