@@ -134,15 +134,7 @@
           })},
 
         SaveData: function () {
-          axios.post('https://localhost:44310/api/ToDo', {
-
-            body:  this.Task,
-            headers: {
-              'Access-Control-Allow-Origin': '*',
-              'Access-Control-Allow-Credentials': true,
-              'Content-Type': 'application/x-www-form-urlencoded'
-            },
-          }).then((response) => {alert(this.task)})
+          axios.post('https://localhost:44310/api/ToDo',this.Task).then((response) => {alert(this.task)})
             .catch((e) => {
               alert(e);
               console.error(e)
