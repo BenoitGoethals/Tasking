@@ -16,7 +16,7 @@
     "chartjs": "^0.3.24",
     "cross-env": "^5.2.0",
     "jslinq": "^1.0.21",
-    "moment": "^2.22.2",
+    "moment": "^2.29.2",
     "nuxt": "^2.0.0",
     "nuxt-buefy": "^0.2.1",
     "quasar": "0.0.18",
