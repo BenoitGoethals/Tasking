@@ -17,7 +17,7 @@
     "cross-env": "^5.2.0",
     "jslinq": "^1.0.21",
     "moment": "^2.22.2",
-    "nuxt": "^2.0.0",
+    "nuxt": "^2.15.8",
     "nuxt-buefy": "^0.2.1",
     "quasar": "0.0.18",
     "quasar-calendar": "^0.3.1",
